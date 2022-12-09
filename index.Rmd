@@ -20,7 +20,10 @@ wasserqual <- read.csv("S:/Daten/High Charts/Beispiel-Daten/data_sauerstoff_see.
   arrange(sort)
 
 # Heatmap mit spezifischer Farbpalette
-plot.heatmap <- ggplot(wasserqual, aes(x=Datum, y=reorder(Seetiefe, sort))) +
+plot.heatmap3 <- ggplot(wasserqual, aes(x=Datum, y=reorder(Seetiefe, sort),  
+                                        text = paste('</br>Datum: ', Datum,
+                                                     '</br>Seetiefe: ', Seetiefe, "m",
+                                                     '</br>Sauerstoffgehalt: ', Sauerstoffgehalt, 'mg/L'))) +
   geom_tile(aes(fill = Sauerstoffgehalt), colour = "transparent", width = 50, height = 2) +
   scale_fill_gradientn(colours=c("#000099", "#1a1aff", "#00ccff",
                                  "#00ccff", "#ffe066", "#ff944d",
@@ -49,7 +52,7 @@ plot.heatmap
 
 
 ```{r echo=FALSE}
-ggplotly(plot.heatmap)
+ggplotly(plot.heatmap3,  tooltip = c("text"))
 
 ```
 
