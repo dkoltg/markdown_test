@@ -20,7 +20,7 @@ wasserqual <- read.csv("S:/Daten/High Charts/Beispiel-Daten/data_sauerstoff_see.
   arrange(sort)
 
 # Heatmap mit spezifischer Farbpalette
-plot.heatmap3 <- ggplot(wasserqual, aes(x=Datum, y=reorder(Seetiefe, sort),  
+plot.heatmap <- ggplot(wasserqual, aes(x=Datum, y=reorder(Seetiefe, sort),  
                                         text = paste('</br>Datum: ', Datum,
                                                      '</br>Seetiefe: ', Seetiefe, "m",
                                                      '</br>Sauerstoffgehalt: ', Sauerstoffgehalt, 'mg/L'))) +
@@ -52,7 +52,7 @@ plot.heatmap
 
 
 ```{r echo=FALSE}
-ggplotly(plot.heatmap3,  tooltip = c("text"))
+ggplotly(plot.heatmap,  tooltip = c("text"))
 
 ```
 
